@@ -5,6 +5,7 @@ import pandas as pd
 
 from app.embeddings.embedder import Embedder, build_faiss_index
 from app.cache.semantic_cache import SemanticCache
+cluster_membership = np.load("data/cluster_membership.npy") 
 
 router = APIRouter()
 
@@ -42,16 +43,18 @@ def query_api(data: QueryRequest):
     )
 
     results = [df.iloc[i]["text"][:200] for i in indices[0]]
+    dominant_cluster = int(np.argmax(cluster_membership[indices[0][0]])) 
 
     cache.add(query, query_vector, results, cluster=None)
 
     return {
-        "query": query,
-        "cache_hit": False,
-        "matched_query": None,
-        "similarity_score": None,
-        "result": results
-    }
+    "query": query,
+    "cache_hit": hit,
+    "matched_query": entry["query"] if hit else None,
+    "similarity_score": score if hit else None,
+    "dominant_cluster": dominant_cluster,
+    "result": results
+} 
 
 
 @router.get("/cache/stats")
