@@ -12,6 +12,8 @@ The system:
 The goal is to demonstrate how semantic similarity can reduce redundant computation in search systems.
 
 ## System Architecture
+
+```
 User Query
    │
    ▼
@@ -32,8 +34,9 @@ Semantic Cache
            │
            ▼
        Store in Cache
+```
 
-The system exposes this functionality through a FastAPI service.
+The system exposes this functionality through a FastAPI service. 
 
 ## Part 1 — Embeddings and Vector Database
 
