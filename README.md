@@ -72,7 +72,7 @@ When a new query arrives:
 - Cosine similarity is computed against cached query embeddings.
 - If similarity exceeds a threshold, the cached result is returned.
 
-Tunable Similarity Threshold :
+**Tunable Similarity Threshold :**
 The cache includes a similarity threshold parameter.
 
 Example behavior:
@@ -104,15 +104,14 @@ Clears the cache and resets statistics.
 
 The API can be tested through the automatically generated FastAPI Swagger interface.
 
-Key Design Decisions :
+**Key Design Decisions :**
 
 SentenceTransformers were chosen for high-quality semantic embeddings.
 FAISS was selected for efficient vector similarity search.
 Gaussian Mixture Models were used to produce probabilistic cluster memberships rather than hard assignments.
 A custom semantic cache was implemented from first principles without external caching libraries, as required.
 
- Repository Structure
- --------------------
+## Repository Structure 
 
 app/
   api/            FastAPI endpoints
@@ -132,20 +131,20 @@ data/
 main.py                  FastAPI entry point
 requirements.txt         Project dependencies
 
-Running the Project :
+**Running the Project :**
 
  - Create a virtual environment: python -m venv venv
  - Activate the environment and install dependencies: pip install -r requirements.txt
  - Run the API server: uvicorn main:app --reload
  - Open the API documentation: http://127.0.0.1:8000/docs
 
-Future Improvements :
+**Future Improvements :**
 
 Cluster-aware cache indexing to reduce lookup complexity.
 Adaptive cache thresholds based on query distribution.
 More advanced clustering analysis using topic modeling.
 
-Conclusion : 
+**Conclusion :**  
 
 This project demonstrates how semantic embeddings, fuzzy clustering, and a custom semantic cache can work together to build an efficient semantic search system.
 The system avoids redundant computation by recognizing semantically similar queries and reusing previously computed results.
