@@ -4,10 +4,10 @@ A lightweight semantic search system for the 20 Newsgroups dataset combining vec
 ## Project Overview
 This project builds a lightweight semantic search engine for the 20 Newsgroups dataset.
 The system:
-• Converts documents into semantic embeddings
-• Groups documents using probabilistic (fuzzy) clustering
-• Implements a semantic cache to reuse results for similar queries
-• Exposes the system through a FastAPI service
+ - Converts documents into semantic embeddings
+ - Groups documents using probabilistic (fuzzy) clustering
+ - Implements a semantic cache to reuse results for similar queries
+ - Exposes the system through a FastAPI service
 
 The goal is to demonstrate how semantic similarity can reduce redundant computation in search systems.
 
