@@ -13,30 +13,11 @@ The goal is to demonstrate how semantic similarity can reduce redundant computat
 
 ## System Architecture
 
-```
-User Query
-   │
-   ▼
-Query Embedding (SentenceTransformer)
-   │
-   ▼
-Semantic Cache
-   │
-   ├── Cache Hit → Return Result
-   │
-   └── Cache Miss
-           │
-           ▼
-       FAISS Vector Search
-           │
-           ▼
-       Retrieve Documents
-           │
-           ▼
-       Store in Cache
-```
+User Query → Query Embedding (SentenceTransformer) → Semantic Cache  
+        ↳ Cache Hit → Return Cached Result  
+        ↳ Cache Miss → FAISS Vector Search → Retrieve Documents → Store Result in Cache
 
-The system exposes this functionality through a FastAPI service. 
+The system exposes this functionality through a FastAPI service.
 
 ## Part 1 — Embeddings and Vector Database
 
