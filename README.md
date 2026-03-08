@@ -111,25 +111,30 @@ FAISS was selected for efficient vector similarity search.
 Gaussian Mixture Models were used to produce probabilistic cluster memberships rather than hard assignments.
 A custom semantic cache was implemented from first principles without external caching libraries, as required.
 
-## Repository Structure 
+## Repository Structure
 
-app/
-  api/            FastAPI endpoints
-  cache/          Semantic cache implementation
-  clustering/     Fuzzy clustering logic
-  embeddings/     Embedding model utilities
-
-scripts/
-  load_dataset.py        Dataset preparation
-  analyze_clusters.py    Boundary case analysis
-
-data/
-  newsgroups.csv
-  embeddings.npy
-  cluster_membership.npy
-
-main.py                  FastAPI entry point
-requirements.txt         Project dependencies
+```
+semantic-search-fuzzy-cache
+│
+├── app/
+│   ├── api/           FastAPI endpoints
+│   ├── cache/         Semantic cache implementation
+│   ├── clustering/    Fuzzy clustering logic
+│   └── embeddings/    Embedding model utilities
+│
+├── scripts/
+│   ├── load_dataset.py       Dataset preparation
+│   └── analyze_clusters.py   Boundary case analysis
+│
+├── data/
+│   ├── newsgroups.csv
+│   ├── embeddings.npy
+│   └── cluster_membership.npy
+│
+├── main.py            FastAPI entry point
+├── requirements.txt   Project dependencies
+└── README.md
+```
 
 **Running the Project :**
 
